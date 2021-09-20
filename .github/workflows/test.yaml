@@ -40,5 +40,5 @@ jobs:
       - name: Test command with flag
         shell: bash
         run: |
-          cd $RUNNER_TEMP
-          gh-test --dir=$RUNNER_TEMP/test-project
+          cd $GITHUB_WORKSPACE
+          gh-test --dir=$GITHUB_WORKSPACE/example
