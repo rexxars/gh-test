@@ -22,9 +22,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set as path var var
+      - name: Set PATH var (windows)
+        if: startsWith(matrix.os, 'windows')
         run: |
-          echo "{{GITHUB_WORKSPACE}}/src/bin" >> $GITHUB_PATH
+          echo "$env:GITHUB_WORKSPACE\src\bin" >> $env:GITHUB_ENV
+
+      - name: Set as path var var
+        if: startsWith(matrix.os, 'windows') != true
+        run: |
+          echo "${GITHUB_WORKSPACE}/src/bin" >> $GITHUB_PATH
 
       - name: Test command in folder
         run: |
