@@ -2,6 +2,10 @@ name: Test
 
 on: [push]
 
+defaults:
+  run:
+    working-directory: ${{ env.GITHUB_WORKSPACE }}
+
 jobs:
   test:
     name: Test (${{ matrix.os }} / node ${{ matrix.node }})
@@ -33,11 +37,10 @@ jobs:
           echo "$GITHUB_WORKSPACE/src/bin" >> $GITHUB_PATH
 
       - name: Test command in folder
-        working-directory: ${{ env.GITHUB_WORKSPACE }}
+        working-directory: ./example
         run: |
           gh-test
 
       - name: Test command with flag
-        working-directory: ${{ env.GITHUB_WORKSPACE }}
         run: |
           gh-test --dir=./example

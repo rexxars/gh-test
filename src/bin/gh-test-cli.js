@@ -6,6 +6,7 @@ const dirAt = argv.indexOf('--dir')
 const dir = dirAt === -1 ? process.cwd() : path.resolve(process.cwd(), argv[dirAt + 1])
 
 console.log('We are running!')
+console.log('Current working dir: %s', process.cwd())
 console.log('Directory: %s\n', dir)
 
 console.log('Files/directories in here:')
