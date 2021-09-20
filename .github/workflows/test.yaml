@@ -34,7 +34,7 @@ jobs:
 
       - name: Test command in folder
         run: |
-          cd "${{env.GITHUB_WORKSPACE}}/example"
+          cd "$GITHUB_WORKSPACE/example"
           gh-test
 
       - name: Test command with flag
