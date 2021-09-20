@@ -2,10 +2,6 @@ name: Test
 
 on: [push]
 
-defaults:
-  run:
-    working-directory: ${{ env.GITHUB_WORKSPACE }}
-
 jobs:
   test:
     name: Test (${{ matrix.os }} / node ${{ matrix.node }})
