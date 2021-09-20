@@ -24,11 +24,11 @@ jobs:
 
       - name: Set as path var var
         run: |
-          echo "${{env.GITHUB_WORKSPACE}}/src/bin" >> $GITHUB_PATH
+          echo "{{GITHUB_WORKSPACE}}/src/bin" >> $GITHUB_PATH
 
       - name: Test command in folder
         run: |
-          cd "${{env.GITHUB_WORKSPACE}}/example"
+          cd "{{GITHUB_WORKSPACE}}/example"
           gh-test
 
       - name: Test command with flag
