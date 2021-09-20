@@ -33,12 +33,11 @@ jobs:
           echo "$GITHUB_WORKSPACE/src/bin" >> $GITHUB_PATH
 
       - name: Test command in folder
+        working-directory: ${{ env.GITHUB_WORKSPACE }}
         run: |
-          cd example
           gh-test
 
       - name: Test command with flag
-        shell: bash
+        working-directory: ${{ env.GITHUB_WORKSPACE }}
         run: |
-          cd $GITHUB_WORKSPACE
-          gh-test --dir=$GITHUB_WORKSPACE/example
+          gh-test --dir=./example
