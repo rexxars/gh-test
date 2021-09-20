@@ -6,7 +6,7 @@ jobs:
   test:
     name: Test (${{ matrix.os }} / node ${{ matrix.node }})
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.experimental }}
+    continue-on-error: true
 
     strategy:
       matrix:
